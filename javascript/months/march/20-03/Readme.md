@@ -11,29 +11,19 @@ const [actived, setActived] = useState("");
 
 return (
   {arrayOfMenus.map((item, index) => (
-    <div
-			key={arrayOfMenus.index}
-			onClick={() =>
-			setActived(arrayOfMenus[index])
-		}
-		>
+    <div key={arrayOfMenus.index} onClick={() => setActived(arrayOfMenus[index])}>
       <ul>
         <li className={actived === item.menuName[index] ? "menuActived" : ""}>
           {item.menuName}
         </li>
         <button>
-          {actived === item.menuName[index] ?
-          (
-            <ArrowUp className="activedArrow" />
-          ) : (
-            <ArrowDown />
-          )}
+          {actived === item.menuName[index] ? (<ArrowUp className="activedArrow" />)
+          : (<ArrowDown />)}
         </button>
       </ul>
 
-      {actived === item.menuName[index] && (
-					<SubMenus />
-			)}
+      {actived === item.menuName[index] && (<SubMenus />)}
+
     </div>
   )
 )
